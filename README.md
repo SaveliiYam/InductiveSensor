@@ -10,18 +10,18 @@
 - (Arduino IDE) автоматическая установка из .zip: *Скетч/Подключить библиотеку/Добавить .ZIP библиотеку…* и указать скачанный архив
 ## Инициализация
 ```cpp
-InductiveSensor sensor(pin, "PNP"); // Инициализация пина датчика с PNP структурой
-InductiveSensor sensor(pin, "NPN"); // Инициализация пина датчика с NPN структурой
+InductiveSensor sensor(pin); // Инициализация пина датчика, вероятнее всего вы будете использовать реле или оптрон перед датчиком, 
+// т.к. датчик вряд-ли можно подключить к микроконтроллеру
 ```
 ## Использование
 ```cpp
-void approach(); // Если на к датчикуприближается металлический объект, то выведет true
+void targetMetall(); // Если на к датчикуприближается металлический объект, то выведет true
 ```
 ## Примеры 
 ```cpp
 #include <InductiveSensor.h>
 
-InductiveSensor sensor(12, "NPN"); //initialization
+InductiveSensor sensor(12); //initialization
 
 void setup() {
   pinMode(13, OUTPUT);
@@ -29,7 +29,7 @@ void setup() {
 }
 
 void loop() {
-  if(sensor.approach() == true){
+  if(sensor.targetMetall() == true){
     digitalWrite(13, HIGH);
   }
   else{digitalWrite(13, LOW);}
