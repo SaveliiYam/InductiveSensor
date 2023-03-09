@@ -1,0 +1,4 @@
+InductiveSensor	KEYWORD1
+int	KEYWORD1
+
+targetMetall	KEYWORD2
